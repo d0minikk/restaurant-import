@@ -19,6 +19,7 @@
       <th scope="col">File name</th>
       <th scope="col">Status</th>
       <th scope="col">Imported at</th>
+      <th scope="col">Finished processing at</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
         <td><%= import_task.file.file.filename %></td>
         <td><%= import_task.status %></td>
         <td><%= import_task.created_at %></td>
+        <td><%= import_task.finished_processing_at %></td>
         <td>
           <% if import_task.log.present? %>
             <%= link_to 'Log file', import_task.log.url %>
