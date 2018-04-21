@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.1.0'
+gem 'simple_form'
 gem 'sidekiq'
 gem 'carrierwave', '~> 1.0'
 
