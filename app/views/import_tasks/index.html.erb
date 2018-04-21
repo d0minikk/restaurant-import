@@ -1,0 +1,39 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Import Tasks', import_tasks_path %></li>
+  </ol>
+</nav>
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Import Tasks</h1>
+  </div>
+  <div class="col-2">
+    <%= link_to 'New', new_import_task_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">File name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Imported at</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @import_tasks.each do |import_task| %>
+      <tr>
+        <td><%= import_task.file.file.filename %></td>
+        <td><%= import_task.status %></td>
+        <td><%= import_task.created_at %></td>
+        <td>
+          <% if import_task.log.present? %>
+            <%= link_to 'Log file', import_task.log.url %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

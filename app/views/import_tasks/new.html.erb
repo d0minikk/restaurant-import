@@ -1,0 +1,18 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Import Tasks', import_tasks_path %></li>
+    <li class="breadcrumb-item">New</li>
+  </ol>
+</nav>
+
+<h1>Create import task</h1>
+
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for(@form, url: import_tasks_path, as: :import_task) do |f| %>
+      <%= f.input :file, as: :file %>
+      <%= f.input :importer_type, collection: Import::SelectorPresenter.task_types %>
+      <%= f.button :submit, 'Create Import Task', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

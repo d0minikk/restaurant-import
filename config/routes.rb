@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :import_tasks, only: [:index, :new, :create]
+
+  root to: 'import_tasks#index'
 end
