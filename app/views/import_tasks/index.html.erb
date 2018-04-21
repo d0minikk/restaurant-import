@@ -26,7 +26,7 @@
   <tbody>
     <% @import_tasks.each do |import_task| %>
       <tr>
-        <td><%= import_task.file.file.filename %></td>
+        <td><%= link_to import_task.file.file.filename, import_task.file.url %></td>
         <td><%= import_task.status %></td>
         <td><%= import_task.created_at %></td>
         <td><%= import_task.finished_processing_at %></td>
