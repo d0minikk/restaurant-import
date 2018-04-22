@@ -1,6 +1,4 @@
-class Importers::DishForm
-  include ActiveModel::Model
-
+class Importers::DishForm < Importers::BaseForm
   attr_accessor(
     :id,
     :name,
@@ -17,7 +15,7 @@ class Importers::DishForm
   validates :id, numericality: true
 
   def initialize(row)
-    values = row.split(';', -1)
+    values = extract_values(row)
     attributes = {
       id:             values[0],
       name:           values[1],

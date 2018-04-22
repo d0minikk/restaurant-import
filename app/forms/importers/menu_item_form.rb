@@ -1,6 +1,4 @@
-class Importers::MenuItemForm
-  include ActiveModel::Model
-
+class Importers::MenuItemForm < Importers::BaseForm
   attr_accessor(
     :id,
     :menu_page_id,
@@ -16,7 +14,7 @@ class Importers::MenuItemForm
   validates :menu_page_id, :dish_id, presence: true, numericality: true
 
   def initialize(row)
-    values = row.split(';', -1)
+    values = extract_values(row)
     attributes = {
       id:           values[0],
       menu_page_id: values[1],
