@@ -1,0 +1,44 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Dishes', dishes_path %></li>
+  </ol>
+</nav>
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Dishes</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Menus appeared</th>
+      <th scope="col">Times appeared</th>
+      <th scope="col">First appeared</th>
+      <th scope="col">Last appeared</th>
+      <th scope="col">Lowest price</th>
+      <th scope="col">Highest price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dishes.each do |dish| %>
+      <tr>
+        <td><%= dish.id %></td>
+        <td><%= dish.name %></td>
+        <td><%= dish.description %></td>
+        <td><%= dish.menus_appeared %></td>
+        <td><%= dish.times_appeared %></td>
+        <td><%= dish.first_appeared %></td>
+        <td><%= dish.last_appeared %></td>
+        <td><%= dish.lowest_price %></td>
+        <td><%= dish.highest_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @dishes %>

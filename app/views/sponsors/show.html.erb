@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Sponsors', sponsors_path %></li>
+    <li class="breadcrumb-item"><%= @sponsor.id %></li>
+  </ol>
+</nav>
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Sponsor <%= @sponsor.id %> </h1>
+  </div>
+</div>
+
+<table class="table">
+  <tbody>
+    <tr><td>ID</td><td><%= @sponsor.id %></td></tr>
+    <tr><td>Name</td><td><%= @sponsor.name %></td></tr>
+  </tbody>
+</table>
+
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Menus</h1>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Sponsor</th>
+      <th scope="col">Event</th>
+      <th scope="col">Venue</th>
+      <th scope="col">Place</th>
+      <th scope="col">Location</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sponsor.menus.each do |menu| %>
+      <tr>
+        <td><%= link_to menu.id, menu_path(menu) %></td>
+        <td><%= menu.name %></td>
+        <td><%= menu.sponsor.try(:name) %></td>
+        <td><%= menu.event.try(:name) %></td>
+        <td><%= menu.venue.try(:name) %></td>
+        <td><%= menu.place.try(:name) %></td>
+        <td><%= menu.location.try(:name) %></td>
+        <td><%= menu.date %></td>
+        <td><%= menu.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

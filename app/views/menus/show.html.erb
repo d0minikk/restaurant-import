@@ -1,0 +1,90 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Menus', menus_path %></li>
+    <li class="breadcrumb-item"><%= @menu.id %></li>
+  </ol>
+</nav>
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Menu <%= @menu.id %> </h1>
+  </div>
+</div>
+
+<table class="table">
+  <tbody>
+    <tr><td>ID</td><td><%= @menu.id %></td></tr>
+    <tr><td>Name</td><td><%= @menu.name %></td></tr>
+    <tr>
+      <td>Sponsor</td>
+      <td>
+        <% if @menu.sponsor %>
+          <%= link_to @menu.sponsor.try(:name), sponsor_path(@menu.sponsor) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Event</td>
+      <td>
+        <% if @menu.event %>
+          <%= link_to @menu.event.try(:name), event_path(@menu.event) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Venue</td>
+      <td>
+        <% if @menu.venue %>
+          <%= link_to @menu.venue.try(:name), venue_path(@menu.venue) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+        <% if @menu.place %>
+          <%= link_to @menu.place.try(:name), place_path(@menu.place) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr><td>Physical Description</td><td><%= @menu.physical_description %></td></tr>
+    <tr>
+      <td>Occasion</td>
+      <td>
+        <% if @menu.occasion %>
+          <%= link_to @menu.occasion.try(:name), occasion_path(@menu.occasion) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr><td>Notes</td><td><%= @menu.notes %></td></tr>
+    <tr><td>Call number</td><td><%= @menu.call_number %></td></tr>
+    <tr><td>Keywords</td><td><%= @menu.keywords %></td></tr>
+    <tr><td>Language</td><td><%= @menu.language %></td></tr>
+    <tr><td>Date</td><td><%= @menu.date %></td></tr>
+    <tr>
+      <td>Location</td>
+      <td>
+        <% if @menu.location %>
+          <%= link_to @menu.location.try(:name), location_path(@menu.location) %>
+        <% else %>
+          Empty
+        <% end %>
+      </td>
+    </tr>
+    <tr><td>Currency</td><td><%= @menu.currency %></td></tr>
+    <tr><td>Currency symbol</td><td><%= @menu.currency_symbol %></td></tr>
+    <tr><td>Status</td><td><%= @menu.status %></td></tr>
+    <tr><td>Page count</td><td><%= @menu.page_count %></td></tr>
+    <tr><td>Dish count</td><td><%= @menu.dish_count %></td></tr>
+  </tbody>
+</table>
