@@ -20,7 +20,7 @@
   <tbody>
     <% @places.each do |place| %>
       <tr>
-        <td><%= place.id %></td>
+        <td><%= link_to place.id, place_path(place) %></td>
         <td><%= place.name %></td>
       </tr>
     <% end %>

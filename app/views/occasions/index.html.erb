@@ -20,7 +20,7 @@
   <tbody>
     <% @occasions.each do |occasion| %>
       <tr>
-        <td><%= occasion.id %></td>
+        <td><%= link_to occasion.id, occasion_path(occasion) %></td>
         <td><%= occasion.name %></td>
       </tr>
     <% end %>
