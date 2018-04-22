@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421181301) do
+ActiveRecord::Schema.define(version: 20180422165256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180421181301) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location_type"
   end
 
   create_table "menu_items", force: :cascade do |t|
@@ -88,6 +89,14 @@ ActiveRecord::Schema.define(version: 20180421181301) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "physical_description"
+    t.datetime "date"
+    t.string "status"
+    t.integer "page_count"
+    t.integer "dish_count"
+    t.string "currency"
+    t.string "currency_symbol"
+    t.integer "occasion_id"
     t.index ["event_id"], name: "index_menus_on_event_id"
     t.index ["location_id"], name: "index_menus_on_location_id"
     t.index ["place_id"], name: "index_menus_on_place_id"
@@ -95,7 +104,7 @@ ActiveRecord::Schema.define(version: 20180421181301) do
     t.index ["venue_id"], name: "index_menus_on_venue_id"
   end
 
-  create_table "ocassions", force: :cascade do |t|
+  create_table "occasions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
