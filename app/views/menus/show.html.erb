@@ -88,3 +88,33 @@
     <tr><td>Dish count</td><td><%= @menu.dish_count %></td></tr>
   </tbody>
 </table>
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h1>Menu</h1>
+  </div>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Dish name</th>
+      <th scope="col">Price</th>
+      <th scope="col">High price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menu_pages.each do |menu_page| %>
+      <tr><td colspan="4"><b>Page #<%= menu_page.page_number %></b></td></tr>
+      <% menu_page.menu_items.each do |menu_item| %>
+        <tr>
+          <td><%= menu_item.id %></td>
+          <td><%= menu_item.dish.try(:name) %></td>
+          <td><%= menu_item.price %></td>
+          <td><%= menu_item.high_price %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

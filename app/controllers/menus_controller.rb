@@ -5,5 +5,6 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    @menu_pages = @menu.menu_pages.order(:page_number).includes(:menu_items, :dishes)
   end
 end
