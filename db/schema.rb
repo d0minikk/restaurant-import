@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180422165256) do
+ActiveRecord::Schema.define(version: 20180422191315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180422165256) do
     t.integer "page_number"
     t.integer "full_height"
     t.integer "full_width"
-    t.integer "image_id"
+    t.bigint "image_id"
     t.string "uuid"
     t.bigint "menu_id"
     t.datetime "created_at", null: false
