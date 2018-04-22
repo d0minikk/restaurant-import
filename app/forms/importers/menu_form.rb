@@ -30,7 +30,7 @@ class Importers::MenuForm < Importers::BaseForm
       name:                 name,
       physical_description: physical_description,
       notes:                notes,
-      call_number:          call_numbe,
+      call_number:          call_number,
       keywords:             keywords,
       language:             language,
       date:                 date,
