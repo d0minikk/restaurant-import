@@ -37,5 +37,15 @@ describe ImportTaskForm do
       expect(form.valid?).to eq(false)
       expect(form.errors[:file]).to include('invalid format. Only CSV type allowed.')
     end
+
+    it 'file: wrong delimiter' do
+      file = Rack::Test::UploadedFile.new(File.open("#{Rails.root}/spec/fixtures/files/wrong_delimiter.csv"))
+      params = { file: file, importer_type: 'Dishes' }
+
+      form = described_class.new(params)
+
+      expect(form.valid?).to eq(false)
+      expect(form.errors[:file]).to include('invalid format. Wrong delimiter in file.')
+    end
   end
 end
