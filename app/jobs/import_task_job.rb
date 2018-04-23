@@ -2,6 +2,6 @@ class ImportTaskJob < ActiveJob::Base
   queue_as :import
 
   def perform(import_task_id)
-    # TODO call importer
+    ProcessImportTask.new(import_task_id).process
   end
 end
